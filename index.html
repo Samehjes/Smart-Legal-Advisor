@@ -31,8 +31,80 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            overflow-x: hidden;
         }
 
+        /* ---------------- غلاف الظرف ---------------- */
+        #envelope-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, #1C2541 0%, #0B132B 100%);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            transition: opacity 0.8s ease, visibility 0.8s ease;
+        }
+
+        .envelope-card {
+            max-width: 500px;
+            width: 100%;
+            background: var(--card-bg);
+            border: 3px double var(--gold);
+            border-radius: 20px;
+            padding: 40px 25px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3), inset 0 0 15px rgba(212, 175, 55, 0.1);
+            position: relative;
+        }
+
+        .envelope-icon {
+            font-size: 50px;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .envelope-title {
+            color: var(--gold);
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .envelope-sender {
+            color: var(--text-light);
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .open-btn {
+            background: linear-gradient(135deg, #D4AF37 0%, #AA7C11 100%);
+            color: #000;
+            border: none;
+            padding: 15px 35px;
+            font-size: 17px;
+            font-weight: 800;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.4);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .open-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.6);
+        }
+
+        /* ---------------- محتوى الدعوة الرئيسي ---------------- */
         .container {
             max-width: 650px;
             width: 100%;
@@ -42,6 +114,9 @@
             padding: 35px 20px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
+            display: none; /* ينكشف بعد فتح الظرف */
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
         .logo {
@@ -85,7 +160,6 @@
             font-size: 16px;
         }
 
-        /* دعوة المحامين */
         .lawyers-box {
             background: rgba(212, 175, 55, 0.1);
             border: 1px dashed var(--gold);
@@ -99,9 +173,6 @@
             color: var(--gold-light);
             font-size: 16px;
             margin-bottom: 8px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
         }
 
         .lawyers-box p {
@@ -110,7 +181,6 @@
             line-height: 1.7;
         }
 
-        /* تنويه الموعد والتعليمات */
         .notice-box {
             background: rgba(11, 19, 43, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.4);
@@ -121,11 +191,6 @@
             color: var(--gold-light);
             line-height: 1.7;
             text-align: right;
-        }
-
-        .notice-box i {
-            color: var(--gold);
-            margin-left: 5px;
         }
 
         .timer-title {
@@ -214,7 +279,20 @@
 </head>
 <body>
 
-    <div class="container">
+    <!-- غلاف الظرف -->
+    <div id="envelope-overlay">
+        <div class="envelope-card">
+            <div class="envelope-icon">✉️</div>
+            <div class="envelope-title">دعوة افتتاح لسيادتكم</div>
+            <div class="envelope-sender">مرسلة من الأستاذ / سامح فاروق كامل</div>
+            <button class="open-btn" onclick="openInvitation()">
+                <i class="fa-solid fa-envelope-open"></i> إضغط هنا لفتح الدعوة
+            </button>
+        </div>
+    </div>
+
+    <!-- محتوى الدعوة الكلية -->
+    <div class="container" id="main-card">
         <img src="logo.png" alt="Smart Legal Advisor Logo" class="logo" onerror="this.style.display='none'">
 
         <h1>⚖️ تطبيق Smart Legal Advisor <br> خبرة المحاماة ورؤية المستقبل ⚖️</h1>
@@ -228,17 +306,15 @@
             <p>تقديم تجربة "مكتب محاماة بمكانك" يجمع بين التأصيل القانوني وسرعة التكنولوجيا الحديثة، وأساتذة محامين في جميع التخصصات من جميع أنحاء الجمهورية لخدمتك أينما كان موقعك، لتقديم الاستشارات، صياغة ومراجعة العقود، ومتابعة القضايا بكل سهولة وسرية تامة.</p>
         </div>
 
-        <!-- دعوة السادة المحامين -->
         <div class="lawyers-box">
             <h3>👨‍⚖️ دعوة خاصة للسادة المحامين:</h3>
             <p>ندعو كافة الزملاء الأساتذة المحامين المقيدين بنقابة المحامين (ويحملون كارنيه ساري) للتسجيل في التطبيق للبدء في تقديم خدماتهم القانونية لمستخدمي التطبيق في منطقتهم وموقعهم بمقابل مادي مجزٍ.</p>
         </div>
 
-        <!-- تنويه الموعد وطريقة الاستخدام -->
         <div class="notice-box">
             📌 <strong>تنويه هام للزوار الكرام:</strong><br>
             • يرجى فتح هذا الرابط في الموعد المحدد يوم <strong>29/09/2026 الساعة 07:00 مساءً</strong>.<br>
-            • عند انتهاء العد التنازلي، ستظهر لك أزرار الدخول لشاهدة فيديو الشرح وطريقة تشغيله، نرجو تكرمكم بعمل <strong>متابعة (Follow)</strong> للصفحة.<br>
+            • عند انتهاء العد التنازلي، ستظهر لك أزرار الدخول لمشاهدة فيديو الشرح وطريقة تشغيله، نرجو تكرمكم بعمل <strong>متابعة (Follow)</strong> للصفحة.<br>
             • كما يظهر لك زر التحميل المباشر للتطبيق، ونسعد جداً بدعمكم عبر <strong>تقييم التطبيق بالنجوم ⭐⭐⭐⭐⭐</strong> على متجر Google Play.
         </div>
 
@@ -268,6 +344,23 @@
     </div>
 
     <script>
+        // دالة فتح الظرف
+        function openInvitation() {
+            const overlay = document.getElementById("envelope-overlay");
+            const mainCard = document.getElementById("main-card");
+            
+            overlay.style.opacity = "0";
+            overlay.style.visibility = "hidden";
+            
+            setTimeout(() => {
+                mainCard.style.display = "block";
+                setTimeout(() => {
+                    mainCard.style.opacity = "1";
+                }, 50);
+            }, 400);
+        }
+
+        // عداد التوقيت التنازلي
         const targetDate = new Date(2026, 8, 29, 19, 0, 0).getTime();
 
         function updateTimer() {
