@@ -11,6 +11,7 @@
             --bg-color: #0B132B;
             --card-bg: rgba(28, 37, 65, 0.95);
             --gold: #D4AF37;
+            --gold-light: #F3E5AB;
             --text-light: #FFFFFF;
             --text-sub: #E0E0E0;
         }
@@ -38,17 +39,17 @@
             background: var(--card-bg);
             border: 2px solid var(--gold);
             border-radius: 20px;
-            padding: 40px 25px;
+            padding: 35px 20px;
             text-align: center;
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(212, 175, 55, 0.2);
         }
 
         .logo {
-            width: 130px;
-            height: 130px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             border: 3px solid var(--gold);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
             object-fit: cover;
         }
 
@@ -74,20 +75,63 @@
             border-right: 4px solid var(--gold);
             padding: 15px;
             border-radius: 8px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             text-align: right;
         }
 
         .target-box h3 {
             color: var(--gold);
             margin-bottom: 8px;
-            font-size: 17px;
+            font-size: 16px;
+        }
+
+        /* دعوة المحامين */
+        .lawyers-box {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px dashed var(--gold);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: right;
+        }
+
+        .lawyers-box h3 {
+            color: var(--gold-light);
+            font-size: 16px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .lawyers-box p {
+            font-size: 14px;
+            color: var(--text-sub);
+            line-height: 1.7;
+        }
+
+        /* تنويه الموعد والتعليمات */
+        .notice-box {
+            background: rgba(11, 19, 43, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: var(--gold-light);
+            line-height: 1.7;
+            text-align: right;
+        }
+
+        .notice-box i {
+            color: var(--gold);
+            margin-left: 5px;
         }
 
         .timer-title {
             font-size: 16px;
             color: var(--gold);
-            margin-bottom: 15px;
+            margin-bottom: 12px;
             font-weight: 700;
         }
 
@@ -95,7 +139,7 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             direction: ltr;
         }
 
@@ -104,11 +148,11 @@
             border: 1px solid var(--gold);
             border-radius: 10px;
             padding: 10px;
-            min-width: 70px;
+            min-width: 65px;
         }
 
         .number {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 800;
             color: var(--gold);
             display: block;
@@ -123,8 +167,8 @@
         .action-buttons {
             display: none;
             flex-direction: column;
-            gap: 15px;
-            margin-top: 25px;
+            gap: 12px;
+            margin-top: 20px;
         }
 
         .btn {
@@ -184,6 +228,20 @@
             <p>تقديم تجربة "مكتب محاماة بمكانك" يجمع بين التأصيل القانوني وسرعة التكنولوجيا الحديثة، وأساتذة محامين في جميع التخصصات من جميع أنحاء الجمهورية لخدمتك أينما كان موقعك، لتقديم الاستشارات، صياغة ومراجعة العقود، ومتابعة القضايا بكل سهولة وسرية تامة.</p>
         </div>
 
+        <!-- دعوة السادة المحامين -->
+        <div class="lawyers-box">
+            <h3>👨‍⚖️ دعوة خاصة للسادة المحامين:</h3>
+            <p>ندعو كافة الزملاء الأساتذة المحامين المقيدين بنقابة المحامين (ويحملون كارنيه ساري) للتسجيل في التطبيق للبدء في تقديم خدماتهم القانونية لمستخدمي التطبيق في منطقتهم وموقعهم بمقابل مادي مجزٍ.</p>
+        </div>
+
+        <!-- تنويه الموعد وطريقة الاستخدام -->
+        <div class="notice-box">
+            📌 <strong>تنويه هام للزوار الكرام:</strong><br>
+            • يرجى فتح هذا الرابط في الموعد المحدد يوم <strong>29/09/2026 الساعة 07:00 مساءً</strong>.<br>
+            • عند انتهاء العد التنازلي، ستظهر لك أزرار الدخول لشاهدة فيديو الشرح وطريقة تشغيله، نرجو تكرمكم بعمل <strong>متابعة (Follow)</strong> للصفحة.<br>
+            • كما يظهر لك زر التحميل المباشر للتطبيق، ونسعد جداً بدعمكم عبر <strong>تقييم التطبيق بالنجوم ⭐⭐⭐⭐⭐</strong> على متجر Google Play.
+        </div>
+
         <div id="countdown-section">
             <div class="timer-title">⌛ الموعد المرتقب للافتتاح (الثلاثاء 29/09 الساعة 7:00 مساءً)</div>
             <div class="countdown-container">
@@ -196,10 +254,10 @@
 
         <div class="action-buttons" id="action-buttons">
             <a href="https://www.facebook.com/share/v/1K2sBF8ep3/" target="_blank" class="btn btn-video">
-                <i class="fa-brands fa-facebook-f"></i> 🎥 شاهد إعلان الفيديو على الفيسبوك
+                <i class="fa-brands fa-facebook-f"></i> 🎥 شاهد فيديو الشرح + متابعة الصفحة
             </a>
             <a href="https://play.google.com/store/apps/details?id=com.smartLawyer.legaladvisor" target="_blank" class="btn btn-app">
-                <i class="fa-brands fa-google-play"></i> 📲 حمّل التطبيق الآن عبر Google Play
+                <i class="fa-brands fa-google-play"></i> 📲 حمّل التطبيق الآن وتقييمه بالنجوم ⭐
             </a>
         </div>
 
@@ -210,7 +268,6 @@
     </div>
 
     <script>
-        // ضبط تاريخ الافتتاح: غداً الثلاثاء 29 سبتمبر 2026 - الساعة 7:00 مساءً (19:00)
         const targetDate = new Date(2026, 8, 29, 19, 0, 0).getTime();
 
         function updateTimer() {
